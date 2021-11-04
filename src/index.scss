@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+$font-family-serif: "Crimson Pro", "Noto Serif JP", serif;
+$font-family-sans-serif: "Oxygen", "Noto Sans JP", sans-serif;
+
+@import "~bootstrap/scss/bootstrap.scss";
+
+h1 {
+  font-size: $font-size-base * 2;
+}
+
+.serif {
+  font-family: $font-family-serif;
+  font-size-adjust: 0.48;
+}
+
+.sticky {
+  position: sticky !important;
+  top: 0;
+  max-height: 100vh;
+  overflow: auto;
+  @media (min-width: 768px) {
+    padding-bottom: $spacer * 3;
+  }
+  @media (max-width: 767px) {
+    margin-bottom: $spacer * 1.5;
+  }
+}
+
+#content {
+  @media (min-width: 768px) {
+    margin-top: $spacer * 3;
+  }
+}
+
+.week-list {
+  gap: 15px;
+  div {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+#totop {
+  display: none;
+  transform: 200ms;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.blog-img {
+  max-width: 100%;
+}
