@@ -1,0 +1,123 @@
+% arara: xelatex
+% https://gist.github.com/andrejbauer/ac361549ac2186be0cdb
+\documentclass[12pt,aspectratio=169]{beamer}
+\usepackage{xeCJK}
+\setsansfont{Noto Sans CJK JP}
+\setCJKmainfont{Noto Sans CJK JP}
+\usepackage{ruby}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{pgfpages}
+\usetheme{CambridgeUS}
+\colorlet{myred}{darkred!80!black}
+\def\emph#1{{\color{myred}#1}}
+\setbeameroption{show notes on second screen=right}
+\setbeamertemplate{note page}{\pagecolor{yellow!10}\insertnote}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{{\color{myred}$\blacktriangleright$}}
+\setbeamertemplate{page number in head/foot}{}
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{1ex}}
+\def\arr{→}
+\def\nextnotice{\emph{[next slide]}}
+\AtBeginNote{\setlength\parskip{1em}\setlength\itemsep{1em}\vspace{5mm}\par}
+% only working for notes. for in-slide furigana, you gotta set it manually
+\def\rubysep{-1ex}
+\renewcommand\baselinestretch{1.5}
+\def\rubysize{0.55}
+\title{オーラル１}
+\author{Vu Van Dung\\ヴ・ヴァン・ズン}
+\date{2021年9月30日}
+\begin{document}
+\begin{frame}
+  \titlepage
+  \note{こんばんは、みんなさん。先週は、高校生と\ruby{交}{こう}\ruby{流}{りゅう}で、
+  色々なことが分かるようになったから、今日は、一番気がしたことについて、話します。それは、
+  日本語四にも、高校生にも、アニメが好きな人が多いということです。}
+\end{frame}
+\begin{frame}{アニメが好きな人が多い}
+  \begin{itemize}
+    \item \ruby{期}{き}\ruby{待}{たい}：　アニメが好きな人の\ruby{割}{わり}\ruby{合}{あい}は５\ruby{割}{わり}くらい
+    \item<2-> 本当：　８割くらい{\scriptsize\color{gray}（私のグループ）}\arr 思ったよりも多かった
+    \item<3-> アニメについて話した時間がかなり長かった
+    \begin{itemize}
+      \item 高校生は熱心に話した
+      \item \vspace{-1ex}自分のコレクションを見せてくれた
+    \end{itemize}
+  \end{itemize}
+  \note[item]{日本語のモジュールなので、きっとアニメが好きな人が多いと思って、\ruby{割}{わり}\ruby{合}{あい}
+  は五\ruby{割}{わり}くらいだと思っていました。\nextnotice}
+  \note<2->[item]{しかし、本当は、私が思ったよりも、その\ruby{割}{わり}\ruby{合}{あい}の方が高いのを分かるようになりました。例えば、私のグル
+  ープは八\ruby{割}{わり}くらいでした。\nextnotice}
+  \note<3->[item]{それで、プロジェクトでアニメの話の時間はかなり長かったですよ。一番好きなアニメとか、どんなアニメをよく見ている
+  とか、私たちは\ruby{熱}{ねっ}\ruby{心}{しん}にチャットしました。高校生は自分のコレクションを見せてくれたこともあります。}
+\end{frame}
+\begin{frame}{高校生のメッセージ}
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[every node/.style={inner xsep=5mm}]
+      \node[text width=.8\linewidth] (quote1) {アニメが好きな人が多くてうれしかった。};
+      \node[anchor=north west,font=\scriptsize\color{gray}]
+        (quote1-src) at (quote1.south west) {高校生からのメッセージ（グループ14）};
+      \draw[myred,line width=1mm] (quote1-src.south west) -- (quote1.north west);
+      % can't believe I have to do this workaround
+      \def\rubysep{-1ex}
+      \renewcommand\baselinestretch{1.5}
+      \node[text width=.8\linewidth,anchor=north west] (quote2) at ([yshift=-8mm]quote1-src.south west)
+        {日本のアニメが好きで日本語の勉強を始めた［…］と聞いて、なぜか\ruby{嬉}{うれ}しくなりました。};
+      \node[anchor=north west,font=\scriptsize\color{gray}]
+        (quote2-src) at (quote2.south west) {高校生からのメッセージ（グループ17）};
+      \draw[myred,line width=1mm] (quote2-src.south west) -- (quote2.north west);
+    \end{tikzpicture}
+  \end{figure}
+  \note{それに、私たちがアニメが好きで、高校生たちはうれしいと\ruby{書}{か}きました。スライドで\ruby{書}{か}いてあるも
+  のは高校生からのメッセージです。
+  
+  「アニメが好きな人が多くてうれしかった」とか、「なぜかうれしくなりました」とか、高校生は\ruby{書}{か}きま
+  した。}
+\end{frame}
+\begin{frame}{理由を考えてみる（NUS大学生）}
+  \begin{itemize}
+    \item アニメは多くの人の日本語の勉強の理由
+    
+    \arr 日本語のモジュールにアニメが好きな人はたくさんいる{\scriptsize\color{gray}（私も）}
+  \end{itemize}
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[every node/.style={inner xsep=5mm}]
+      \node[text width=.8\linewidth] (quote1) {[\dots] everyone was a weeb and
+      super passionate about Japanese culture [\dots]};
+      \node[anchor=north west,font=\scriptsize\color{gray}]
+        (quote1-src) at (quote1.south west) {Ember Shenさん \; --- \; LAJ2203のNUSModsレビュー};
+      \draw[myred,line width=1mm] (quote1-src.south west) -- (quote1.north west);
+    \end{tikzpicture}
+  \end{figure}
+  \note{日本語四の学生にとっては、なぜアニメが好きな人はそんな多いでしょう。それは、必ず、
+  日本語の勉強の理由がアニメである人は多いですからね。日本で住むつもりの人と、日本の会社に働く
+  つもりの人がいるかもしれませんが、大体は私のように、\ruby{漫}{まん}\ruby{画}{が}とかアニメ
+  とか、日本のポップカルチャーが好きだから日本語の勉強を始めたでしょうね。だから、アニメのファンが
+  ここでたくさんいる理由だと思います。}
+\end{frame}
+\begin{frame}{理由を考えてみる（高校生）}
+  \begin{itemize}
+    \item 日本人だから、外国人も日本のものが好きでうれしいはず
+    \item<2-> それでも、そんな多くて、\ruby{不}{ふ}\ruby{思}{し}\ruby{議}{ぎ}だ
+  \end{itemize}
+  \note[item]{それで、日本人の高校生はどうでしょう。日本人だから、外国人が日本のものが好きだということは、
+  必ずうれしいですね。もし私の国に興味がある人に会ったら、私もうれしくなります。\nextnotice}
+  \note<2->[item]{それでも、八\ruby{割}{わり}なんて、その割合はまだ本当に高いです。なぜでしょうか。それはとても面白いトピック
+  だと思います。日本の\ruby{青}{せい}\ruby{年}{ねん}のカルチャーのものは、もう一つ、
+  プロジェクトで勉強になりました。}
+\end{frame}
+\begin{frame}
+  \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+      \node[font=\Huge\color{myred}] at (0,0) {終};
+      \node[align=center] at (0,-2) {ありがとうございました！};
+    \end{tikzpicture}
+  \end{figure}
+  \note{では、ここで私のプレゼンテーションが終わります。今まで聞いてくれて、ありがとうございまし
+  た。今はQ\&Aのセクションなので、ご質問がありますか。}
+\end{frame}
+\end{document}
