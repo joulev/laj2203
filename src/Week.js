@@ -3,11 +3,22 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import WeekList from "./WeekList";
 
+function Spinner() {
+  return (
+    <div className="text-center">
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  );
+}
+
 class Week extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weekNo: null,
+      weekNo: this.props.week,
+      loaded: false,
       content: null
     }
   }
@@ -16,12 +27,13 @@ class Week extends React.Component {
     const mdPath = require(`./week/${num}.md`).default;
     fetch(mdPath)
       .then(response => {return response.text()})
-      .then(text => this.setState({ content: text, weekNo: num }));
+      .then(text => this.setState({ loaded: true, content: text }));
   }
 
   componentDidMount = () => this.fetchMd(this.props.week);
 
   handleWeekListClick(num) {
+    this.setState({ weekNo: num, loaded: false });
     this.fetchMd(num);
     this.props.onWeekListClick(num);
   }
@@ -46,7 +58,9 @@ class Week extends React.Component {
         </div>
         <div className="col-md-8 serif mb-3" id="content">
           <div className="content">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]} children={this.state.content} />
+            {this.state.loaded
+            ? <ReactMarkdown rehypePlugins={[rehypeRaw]} children={this.state.content} />
+            : <Spinner />}
           </div>
         </div>
       </div>
