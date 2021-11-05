@@ -8,6 +8,10 @@ $font-family-sans-serif: "Oxygen", "Noto Sans JP", sans-serif;
 
 @import "~bootstrap/scss/bootstrap.scss";
 
+body {
+  overflow-y: scroll;
+}
+
 h1 {
   font-size: $font-size-base * 2;
 }
