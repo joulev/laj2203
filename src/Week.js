@@ -7,7 +7,7 @@ class Week extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      weekNo: this.props.week,
+      weekNo: null,
       content: null
     }
   }
@@ -16,14 +16,13 @@ class Week extends React.Component {
     const mdPath = require(`./week/${num}.md`).default;
     fetch(mdPath)
       .then(response => {return response.text()})
-      .then(text => this.setState({ content: text }));
+      .then(text => this.setState({ content: text, weekNo: num }));
   }
 
-  componentDidMount = () => this.fetchMd(this.state.weekNo);
+  componentDidMount = () => this.fetchMd(this.props.week);
 
   handleWeekListClick(num) {
     this.fetchMd(num);
-    this.setState({weekNo: num});
     this.props.onWeekListClick(num);
   }
 
