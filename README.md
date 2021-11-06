@@ -1,5 +1,7 @@
 # LAJ2203 Learning Journal
 
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=laj2203&style=for-the-badge)
+
 This website is created to host all of my learning journal for LAJ2203
 “Japanese 4” at National University of Singapore.
 
